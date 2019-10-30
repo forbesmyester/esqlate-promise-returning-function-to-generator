@@ -1,0 +1,26 @@
+{
+  "name": "esqlate-promise-returning-function-to-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "keywords": [ "promise", "generator", "async" ],
+  "author": "Matt Forrester",
+  "license": "MIT",
+  "dependencies": {
+    "ava": "^2.4.0",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.4"
+  },
+  "ava": {
+    "compileEnhancements": false,
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  }
+}
