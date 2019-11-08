@@ -1,7 +1,7 @@
 import test from "ava";
-import { streamUntil  } from "../src/index";
+import streamPromisesAsGenerator from "../src/index";
 
-test('success', (assert) => {
+test('success', async (assert) => {
 
     type DBLine = [string, string, number];
     interface Result<R> {
@@ -55,14 +55,14 @@ test('success', (assert) => {
         return r;
     }
 
-    return doTest(streamUntil(getter, isComplete))
-        .then((r) => {
-            assert.deepEqual(r, rows);
-        })
-        .catch((e) => {
-            assert.fail(e);
-            throw e;
-        });
+    try {
+		const r_4 = await doTest(streamPromisesAsGenerator(getter, isComplete));
+		assert.deepEqual(r_4, rows);
+	}
+	catch (e) {
+		assert.fail(e);
+		throw e;
+	}
 });
 
 
@@ -117,7 +117,7 @@ test('error', async (assert) => {
 
     let r: Result<DBLine>[] = [];
     try {
-        for await (const qar of streamUntil(getter, isComplete)()) {
+        for await (const qar of streamPromisesAsGenerator(getter, isComplete)()) {
             r.push(qar);
         }
     } catch (e) {

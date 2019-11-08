@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-function streamUntil(getter, isComplete) {
+function streamPromisesAsGenerator(getter, isComplete) {
     return async function* i() {
         let lastResult = await getter();
         while (!isComplete(lastResult)) {
@@ -9,4 +9,4 @@ function streamUntil(getter, isComplete) {
         }
     };
 }
-exports.streamUntil = streamUntil;
+exports.default = streamPromisesAsGenerator;

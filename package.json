@@ -1,12 +1,16 @@
 {
   "name": "esqlate-promise-returning-function-to-generator",
   "version": "1.0.0",
-  "description": "",
+  "description": "Converts a function that returns a Promise, along with a check to decide whether we should continue into a `for-of` generator.",
   "main": "./dist/index.js",
   "scripts": {
     "test": "ava"
   },
-  "keywords": [ "promise", "generator", "async" ],
+  "keywords": [
+    "promise",
+    "generator",
+    "async"
+  ],
   "author": "Matt Forrester",
   "license": "MIT",
   "dependencies": {
